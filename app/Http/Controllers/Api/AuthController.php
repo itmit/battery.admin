@@ -19,6 +19,14 @@ class AuthController extends ApiBaseController
 
     public function register(Request $request)
     {
+        $validator = Validator::make($request->all(), [ 
+            'phone_number' => 'required',
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+
         $number = $request->input('phone_number');
         $phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
         $phoneNumberObject = $phoneNumberUtil->parse($number, 'RU');
