@@ -44,7 +44,7 @@ class AuthController extends ApiBaseController
             return response()->json(['error'=>$validator->errors()], 401);            
         }
  
-        $tryRegister = Client::WhereRaw('email = "' . $input['email'] . '" or phone = "' . $input['phone'] . '" or uid = "' . $input['uid'] . '" and phone <> "' . $input['phone'] . '"')->first();
+        $tryRegister = Client::WhereRaw('phone_number='.$request['phone_number'].'')->first();
 
         if($tryRegister)
         {
@@ -52,10 +52,10 @@ class AuthController extends ApiBaseController
         }
 
         $user = Client::create([
-            'uid' => $input['uid'],
-            'name' => $input['name'],
-            'phone_number' => $input['phone_number'],
-            'password' => bcrypt($input['password']),
+            'uid' => $request['uid'],
+            'name' => $request['name'],
+            'phone_number' => $request['phone_number'],
+            'password' => bcrypt($request['password']),
         ]);
 
         Auth::login($user);     
