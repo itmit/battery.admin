@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
-class ClientController extends ApiBaseController
+class AuthController extends ApiBaseController
 {
     public $successStatus = 200;
 
