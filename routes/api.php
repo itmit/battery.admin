@@ -19,3 +19,24 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'Api\AuthController@login');
 Route::post('register', 'Api\AuthController@register');
+
+
+Route::fallback(function () {
+    $code = 404;
+    $response = [
+        'success' => false,
+        'message' => 'Page not found',
+    ];
+
+    return response()->json($response, $code);
+});
+
+Route::any('{url?}/{sub_url?}', function(){
+    $code = 404;
+    $response = [
+        'success' => false,
+        'message' => 'Page not found',
+    ];
+
+    return response()->json($response, $code);
+});
