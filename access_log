@@ -1,0 +1,9 @@
+battery.itmit-studio.ru 50.17.187.84 - - [22/Aug/2019:16:00:45 +0300] "POST //api/register HTTP/1.1" 404 1552 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.16.249.180 - - [22/Aug/2019:16:01:33 +0300] "POST /api/register HTTP/1.1" 404 1552 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.16.249.180 - - [22/Aug/2019:16:03:22 +0300] "POST /api/register HTTP/1.1" 500 357700 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.16.249.180 - - [22/Aug/2019:16:05:39 +0300] "POST /api/register HTTP/1.1" 200 1 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.16.249.180 - - [22/Aug/2019:16:17:06 +0300] "POST /api/register HTTP/1.1" 500 440509 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.17.187.84 - - [22/Aug/2019:16:19:12 +0300] "POST /api/register HTTP/1.1" 401 66 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.16.249.180 - - [22/Aug/2019:16:19:34 +0300] "POST /api/register HTTP/1.1" 401 134 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.17.187.84 - - [22/Aug/2019:16:22:24 +0300] "POST /api/register HTTP/1.1" 500 441062 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
+battery.itmit-studio.ru 50.17.187.84 - - [22/Aug/2019:16:25:00 +0300] "POST /api/register HTTP/1.1" 200 1211 "-" "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)" 0
