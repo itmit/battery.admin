@@ -18,7 +18,7 @@ Route::post('register', 'Api\AuthController@register');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
-    
+    Route::post('details', 'Api\ClientController@details');
 });
 
 Route::fallback(function () {

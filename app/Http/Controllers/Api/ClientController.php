@@ -17,9 +17,12 @@ class ClientController extends ApiBaseController
 {
     public $successStatus = 200;
 
-    public function register(Request $request)
+    public function details(Request $request)
     {
-        return 'a';
+        $user = Auth::user(); 
+        return $this->sendResponse(
+            $user->ToArray(),
+            'Details returned');
     }
     
 }
