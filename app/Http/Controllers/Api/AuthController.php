@@ -86,7 +86,7 @@ class AuthController extends ApiBaseController
      * 
      * @return Response 
      */ 
-    public function login() { 
+    public function login(Request $request) { 
 
         $validator = Validator::make($request->all(), [ 
             'phone_number' => 'required',
