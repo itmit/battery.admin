@@ -103,7 +103,7 @@ class AuthController extends ApiBaseController
         $number = $phoneNumberUtil->format($phoneNumberObject, \libphonenumber\PhoneNumberFormat::E164);
         $request['phone_number'] = $number;
 
-        $client = User::whereRaw('phone = "' . $request['phone_number'] . '"')->get()->first();
+        $client = User::whereRaw('phone_number = "' . $request['phone_number'] . '"')->get()->first();
         
 
         if ($client != null) {
