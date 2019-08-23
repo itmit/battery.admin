@@ -38,6 +38,7 @@ class AuthController extends ApiBaseController
             'name' => 'required', 
             'phone_number' => 'required|unique:clients,phone_number',
             'password' => 'required|min:6',
+            'role' => 'required'
         ]);
         
         if ($validator->fails()) { 
@@ -55,6 +56,7 @@ class AuthController extends ApiBaseController
             'uid' => $request['uid'],
             'name' => $request['name'],
             'phone_number' => $request['phone_number'],
+            'pole' => $request['role'],
             'password' => bcrypt($request['password']),
         ]);
 
@@ -76,6 +78,61 @@ class AuthController extends ApiBaseController
                 'Authorization is successful');
         }
         
+        return $this->SendError('Authorization error', 'Unauthorised', 401);
+    }
+
+    /** 
+     * login api 
+     * 
+     * @return Response 
+     */ 
+    public function login() { 
+
+        $validator = Validator::make($request->all(), [ 
+            'phone_number' => 'required',
+            'password' => 'required|min:6'
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+
+        $number = $request->input('phone_number');
+        $phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
+        $phoneNumberObject = $phoneNumberUtil->parse($number, 'RU');
+        $number = $phoneNumberUtil->format($phoneNumberObject, \libphonenumber\PhoneNumberFormat::E164);
+        $request['phone_number'] = $number;
+
+        $client = User::whereRaw('phone = "' . $request['phone_number'] . '"')->get()->first();
+        
+
+        if ($client != null) {
+            if (Hash::check(request('password'), $client->password))
+            {
+                Auth::login($client);
+            }
+            else
+            {
+                return $this->SendError('Authorization error', 'Wrong password', 401);
+            }
+
+            if (Auth::check()) {
+                $tokenResult = $client->createToken(config('app.name'));
+                $token = $tokenResult->token;
+                $token->expires_at = Carbon::now()->addWeeks(1);
+                $token->save();
+
+                return $this->sendResponse([
+                    'access_token' => $tokenResult->accessToken,
+                    'token_type' => 'Bearer',
+                    'expires_at' => Carbon::parse(
+                        $tokenResult->token->expires_at
+                    )->toDateTimeString()
+                ],
+                    'Authorization is successful');
+            }
+        }
+
         return $this->SendError('Authorization error', 'Unauthorised', 401);
     }
     

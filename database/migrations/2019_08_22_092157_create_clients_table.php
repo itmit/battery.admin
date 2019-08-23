@@ -18,6 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('uid');           
             $table->string('name');
             $table->string('phone_number')->unique();
+            $table->boolean('role');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
