@@ -98,6 +98,8 @@ class AuthController extends ApiBaseController
         }
 
         $client = Client::where('login', '= ', $request['login'])->get()->first();
+
+        return $client;
         
 
         if ($client != null) {
