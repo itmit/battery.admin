@@ -97,7 +97,7 @@ class AuthController extends ApiBaseController
             return response()->json(['error'=>$validator->errors()], 401);            
         }
 
-        $client = Client::where('login', '= ', $request['login'])->get()->first();
+        $client = Client::where('login', '= ', $request['login'])->first();
 
         return $client;
         
