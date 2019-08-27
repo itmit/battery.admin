@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
+    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+
+    Route::resource('client', 'Web\ClientWebController');
+
 });
 
 Auth::routes();
