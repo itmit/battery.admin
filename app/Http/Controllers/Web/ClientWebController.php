@@ -51,8 +51,8 @@ class ClientWebController extends Controller
         $validator = Validator::make($request->all(), [
             'login' => 'required|string|max:255|unique:clients',
             'role' => 'required',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required|string|min:6|confirmed|same:password',
+            'password' => 'required|string|min:6',
+            'password_confirmation' => 'required|string|min:6|same:password',
         ]);
 
         if ($validator->fails()) {
