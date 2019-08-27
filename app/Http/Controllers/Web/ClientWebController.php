@@ -62,7 +62,7 @@ class ClientWebController extends Controller
                 ->withInput();
         }
 
-        return (string) Str::uuid();
+        $uid = (string) Str::uuid();
 
         $role = NULL;
 
@@ -80,10 +80,9 @@ class ClientWebController extends Controller
                 $role = NULL;
         }
 
-
-
         Client::create([
             'login' => $request->input('name'),
+            'uid' => $uid,
             'role' => $role,
             'password' => bcrypt($request->input('password'))
         ]);
