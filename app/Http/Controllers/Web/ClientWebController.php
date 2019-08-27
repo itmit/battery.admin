@@ -81,7 +81,7 @@ class ClientWebController extends Controller
         }
 
         Client::create([
-            'login' => $request->input('name'),
+            'login' => $request->input('login'),
             'uid' => $uid,
             'role' => $role,
             'password' => bcrypt($request->input('password'))
