@@ -66,8 +66,6 @@ class ClientWebController extends Controller
 
         $role = NULL;
 
-        return $request->input('login');
-
         switch ($request->input('role')) {
             case 'stockman':
                 $role = 'stockman';
