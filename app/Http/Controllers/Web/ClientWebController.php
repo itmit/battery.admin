@@ -37,7 +37,7 @@ class ClientWebController extends Controller
      */
     public function create()
     {
-        return view("dispatcher.createClient");
+        return view("client.createClient");
     }
 
     /**
