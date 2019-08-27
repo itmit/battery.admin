@@ -62,8 +62,6 @@ class ClientWebController extends Controller
                 ->withInput();
         }
 
-        return 'aaa';
-
         return (string) Str::uuid();
 
         $role = NULL;
