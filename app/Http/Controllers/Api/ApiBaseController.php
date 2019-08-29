@@ -15,23 +15,6 @@ use App\Models\Client;
 abstract class ApiBaseController extends Controller
 {
     /**
-     * Возвращает id представителства к которому отностися диспетчер или клиент.
-     * Либо текущий id пользователя если он является представителем или админом.
-     *
-     * @return integer
-     */
-    protected function getRepresentativeId(): int
-    {
-        $user = auth('api')->user();
-        if ($user instanceof Client) 
-        {
-            return $user->representative;
-        }
-
-        return 0;
-    }
-
-    /**
      * Отправляет ответ на успешный запрос к api.
      *
      * @param array $result
