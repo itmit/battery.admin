@@ -77,11 +77,13 @@
             <div class="col-sm-3 left-menu">
                 <ul class="nav">
 
-                    <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
+                    {{-- <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li> --}}
+                    <a href="{{ route('auth.home') }}">Главная</a>
                     <br>
                     <br>
+                    <a href="{{ route('auth.client.index') }}">Клиенты</a>
 
-                    <li><a href="{{ route('auth.client.index') }}">Клиенты</a></li>
+                    {{-- <li><a href="{{ route('auth.client.index') }}">Клиенты</a></li> --}}
                 </ul>
             </div>
             <div class="col-sm-9 tabs-content">
