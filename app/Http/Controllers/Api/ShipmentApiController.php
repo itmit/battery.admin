@@ -18,19 +18,21 @@ class ShipmentApiController extends ApiBaseController
     public $successStatus = 200;
 
     /** 
-     * login api 
+     * Возвращает список дилеров
      * 
      * @return Response 
      */ 
     public function listOfDealers()
     { 
 
-        $dealers = Client::where('role', '=', 'delaer')->get();
+        return 'a';
 
-        return $this->sendResponse([
-            $dealers
-        ],
-            'Updated');
+        // $dealers = Client::where('role', '=', 'delaer')->get();
+
+        // return $this->sendResponse([
+        //     $dealers
+        // ],
+        //     'Updated');
 
     }
     
