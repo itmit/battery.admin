@@ -78,6 +78,8 @@
                 <ul class="nav">
 
                     <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
+                    <br>
+                    <br>
 
                     <li><a href="{{ route('auth.client.index') }}">Клиенты</a></li>
                 </ul>
