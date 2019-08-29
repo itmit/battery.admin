@@ -18,6 +18,9 @@ class CreateShipmentGoodsTable extends Migration
             $table->integer('shipment_id');
             $table->string('serial_number');
             $table->timestamps();
+
+            $table->foreign('shipment_id')->references('id')->on('shipments')
+                ->onUpdate('cascade');
         });
     }
 
