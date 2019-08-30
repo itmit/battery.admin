@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="{{ route('') }}" class="btn btn-primary">Добавить кладовщиков</a>
+            <a href="" class="btn btn-primary">Добавить кладовщиков</a>
             <table class="table table-bordered">
                 <thead>
                 <tr>
