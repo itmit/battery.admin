@@ -25,7 +25,7 @@ class ShipmentApiController extends ApiBaseController
     public function listOfDealers()
     { 
 
-        // return 'a';
+        return 'a';
 
         // $dealers = Client::where('role', '=', 'delaer')->get();
 

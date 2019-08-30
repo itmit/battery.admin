@@ -72,7 +72,7 @@ return [
         ],
         'clients' => [
             'driver' => 'eloquent',
-            'model' => App\Client::class,
+            'model' => App\Models\Client::class,
             'table' => 'clients',
         ],
 
