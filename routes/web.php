@@ -17,9 +17,9 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     // Route::resource('client', 'Web\ClientWebController');
 
-    Route::post('dealer/create', 'Web\ClientWebController@dealerCreate');
-    Route::post('seller/create', 'Web\ClientWebController@sellerCreate');
-    Route::post('stockman/create', 'Web\ClientWebController@stockmanCreate');
+    Route::get('dealer/create', 'Web\ClientWebController@dealerCreate');
+    Route::get('seller/create', 'Web\ClientWebController@sellerCreate');
+    Route::get('stockman/create', 'Web\ClientWebController@stockmanCreate');
 
     Route::get('dealer', 'Web\ClientWebController@dealer');
     Route::get('seller', 'Web\ClientWebController@seller');
@@ -29,4 +29,4 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
