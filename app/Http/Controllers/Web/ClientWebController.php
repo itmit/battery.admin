@@ -142,4 +142,34 @@ class ClientWebController extends Controller
         );   
     }
 
+    /**
+     * Показывает страницу создания пользователя.
+     *
+     * @return Response
+     */
+    public function dealerCreate()
+    {
+        return view("client.createDealer");
+    }
+
+    /**
+     * Показывает страницу создания пользователя.
+     *
+     * @return Response
+     */
+    public function sellerCreate()
+    {
+        return view("client.sellerDealer");
+    }
+
+    /**
+     * Показывает страницу создания пользователя.
+     *
+     * @return Response
+     */
+    public function stockmanCreate()
+    {
+        return view("client.stockmanCreate");
+    }
+
 }
