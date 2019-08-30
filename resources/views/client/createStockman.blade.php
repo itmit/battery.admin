@@ -1,9 +1,9 @@
 @extends('layouts.adminApp')
 
 @section('content')
-    <h1>Создание клиента</h1>
+    <h1>Создание кладовщика</h1>
     <div class="col-sm-12">
-        <form class="form-horizontal" method="POST" action="{{ route('auth.client.store') }}">
+        <form class="form-horizontal" method="POST" action="">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
