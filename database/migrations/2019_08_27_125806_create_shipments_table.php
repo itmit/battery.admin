@@ -17,7 +17,7 @@ class CreateShipmentsTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uid');
             $table->integer('client_id');
-            $table->integer('dealer_id');
+            $table->integer('dealer_uid');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class Shipment extends Model
      */
     protected $fillable = [
         'client_id',
-        'dealer_id',
+        'dealer_uid',
     ];
 
     /**
