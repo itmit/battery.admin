@@ -26,8 +26,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('stockman', 'Web\ClientWebController@stockman')->name('stockman');
 
     Route::post('dealer/store', 'Web\ClientWebController@storeDealer')->name('storeDealer');
-    Route::post('seller/store', 'Web\ClientWebController@storeseller')->name('storeseller');
-    Route::post('stockman/store', 'Web\ClientWebController@storestockman')->name('storestockman');
+    Route::post('seller/store', 'Web\ClientWebController@storeseller')->name('storeSeller');
+    Route::post('stockman/store', 'Web\ClientWebController@storestockman')->name('storeStockman');
 
 });
 
