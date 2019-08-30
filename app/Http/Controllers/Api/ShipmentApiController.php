@@ -29,10 +29,7 @@ class ShipmentApiController extends ApiBaseController
 
         $dealers = Client::where('role', '=', 'delaer')->get();
 
-        return $this->sendResponse([
-            $dealers
-        ],
-            'Updated');
+        return $this->sendResponse($dealers, 'Updated');
 
     }
     
