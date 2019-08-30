@@ -26,7 +26,7 @@ class ShipmentApiController extends ApiBaseController
     { 
 
         $columns = ['uid', 'login'];
-        $dealers = Client::where('role', '=', 'dealer')->get($columns);
+        $dealers = Client::where('role', '=', 'dealer')->get($columns)-toArray();
 
         return $this->sendResponse($dealers, 'List of dealers');
 
