@@ -49,25 +49,21 @@ class ShipmentApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 401);
         }
 
-        foreach ($request->serial_numbers as $serial_number) {
-            echo $serial_number . ' ';
-        }
+        DB::beginTransaction();
+            $record = new Shipment;
+            $record->uid = $request->input('uid');
+            $record->client_id = auth('api')->user()->id;
+            $record->dealer_uid = $request->input('dealer_uid');
+            $record->save();
+            $id = $record->id;
 
-        // DB::beginTransaction();
-        //     $record = new Shipment;
-        //     $record->uid = $request->input('uid');
-        //     $record->client_id = auth('api')->user()->id;
-        //     $record->dealer_uid = $request->input('dealer_uid');
-        //     $record->save();
-        //     $id = $record->id;
-
-            // foreach ($request->serial_numbers as $serial_number) {
-            //     $record = new ShipmentGoods;
-            //     $record->shipment_id = $id;
-            //     $record->serial_number = $request->serial_numbers;
-            //     $record->save();
-            // }
-        // DB::commit();
+            foreach ($request->serial_numbers as $serial_number) {
+                $record = new ShipmentGoods;
+                $record->shipment_id = $id;
+                $record->serial_number = $serial_numbers;
+                $record->save();
+            }
+        DB::commit();
 
         return 'a';
     }
