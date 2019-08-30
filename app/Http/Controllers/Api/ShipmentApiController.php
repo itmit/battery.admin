@@ -25,11 +25,18 @@ class ShipmentApiController extends ApiBaseController
     public function listOfDealers()
     { 
 
-        // return 'a';
-
         $dealers = Client::where('role', '=', 'dealer')->get()->toArray();
 
-        return $this->sendResponse($dealers, 'Updated');
+        $response = [];
+
+        foreach ($dealers as $dealer) {
+            $response = [
+                'uid' => $dealer->uid,
+                'login' -> $dealer->login
+            ];
+        }
+
+        return $this->sendResponse($response, 'Updated');
 
     }
     
