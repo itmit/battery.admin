@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Shipment extends Model
 {
@@ -19,8 +21,13 @@ class Shipment extends Model
      */
     protected $table = 'shipments';
 
-    public function client() 
+    public function shipmentGoods()
     {
-        return $this->belongsTo(Client::class, 'client')->get()->first();        
+        return $this->hasMany(ShipmentGoods::class);
     }
+
+    // public function client() 
+    // {
+    //     return $this->belongsTo(Client::class, 'client')->get()->first();        
+    // }
 }
