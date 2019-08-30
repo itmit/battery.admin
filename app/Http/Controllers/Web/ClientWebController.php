@@ -159,7 +159,7 @@ class ClientWebController extends Controller
      */
     public function sellerCreate()
     {
-        return view("client.createDealer");
+        return view("client.createSeller");
     }
 
     /**
