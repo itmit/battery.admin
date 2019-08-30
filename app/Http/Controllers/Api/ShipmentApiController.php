@@ -60,7 +60,7 @@ class ShipmentApiController extends ApiBaseController
             foreach ($request->serial_numbers as $serial_number) {
                 $record = new ShipmentGoods;
                 $record->shipment_id = $id;
-                $record->serial_number = $serial_numbers;
+                $record->serial_number = $serial_number;
                 $record->save();
             }
         DB::commit();
