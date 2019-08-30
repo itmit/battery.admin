@@ -17,13 +17,13 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     // Route::resource('client', 'Web\ClientWebController');
 
-    Route::get('dealer/create', 'Web\ClientWebController@dealerCreate');
-    Route::get('seller/create', 'Web\ClientWebController@sellerCreate');
-    Route::get('stockman/create', 'Web\ClientWebController@stockmanCreate');
+    Route::get('dealer/create', 'Web\ClientWebController@dealerCreate')->name('dealercreate');
+    Route::get('seller/create', 'Web\ClientWebController@sellerCreate')->name('sellercreate');
+    Route::get('stockman/create', 'Web\ClientWebController@stockmanCreate')->name('stockmancreate');
 
-    Route::get('dealer', 'Web\ClientWebController@dealer');
-    Route::get('seller', 'Web\ClientWebController@seller');
-    Route::get('stockman', 'Web\ClientWebController@stockman');
+    Route::get('dealer', 'Web\ClientWebController@dealer')->name('dealer');
+    Route::get('seller', 'Web\ClientWebController@seller')->name('seller');
+    Route::get('stockman', 'Web\ClientWebController@stockman')->name('stockman');
 
 });
 
