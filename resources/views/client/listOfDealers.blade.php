@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="" class="btn btn-primary">Добавить дилеров</a>
+            <a href="{{ route('dealer/create') }}" class="btn btn-primary">Добавить дилеров</a>
             <table class="table table-bordered">
                 <thead>
                 <tr>
