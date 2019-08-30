@@ -3,7 +3,7 @@
 @section('content')
     <h1>Создание кладовщика</h1>
     <div class="col-sm-12">
-        <form class="form-horizontal" method="POST" action="">
+        <form class="form-horizontal" method="POST" action="{{ route('auth.storeStockman') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">

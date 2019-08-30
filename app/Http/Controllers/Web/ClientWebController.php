@@ -205,4 +205,70 @@ class ClientWebController extends Controller
         return redirect()->route('auth.dealer');
     }
 
+    /**
+     * Создает нового диспетчера и редиректит на главную страницу представителя.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function storeSeller(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'login' => 'required|string|max:255|unique:clients',
+            'password' => 'required|string|min:6',
+            'password_confirmation' => 'required|string|min:6|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.sellercreate')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $uid = (string) Str::uuid();
+
+        Client::create([
+            'login' => $request->input('login'),
+            'uid' => $uid,
+            'role' => 'seller',
+            'password' => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()->route('auth.seller');
+    }
+
+    /**
+     * Создает нового диспетчера и редиректит на главную страницу представителя.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function storeStockman(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'login' => 'required|string|max:255|unique:clients',
+            'password' => 'required|string|min:6',
+            'password_confirmation' => 'required|string|min:6|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.stockmancreate')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $uid = (string) Str::uuid();
+
+        Client::create([
+            'login' => $request->input('login'),
+            'uid' => $uid,
+            'role' => 'stockman',
+            'password' => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()->route('auth.stockman');
+    }
+
 }
