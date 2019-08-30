@@ -27,7 +27,7 @@ class ShipmentApiController extends ApiBaseController
 
         // return 'a';
 
-        $dealers = Client::where('role', '=', 'delaer')->get();
+        $dealers = Client::where('role', '=', 'delaer')->get()->toArrey();
 
         return $this->sendResponse($dealers, 'Updated');
 
