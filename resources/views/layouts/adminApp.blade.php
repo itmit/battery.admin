@@ -83,6 +83,10 @@
                     <br>
                     <a href="{{ route('auth.client.index') }}">Клиенты</a>
 
+                    <a href="{{ route('auth.dealer.index') }}">Дилеры</a>
+                    <a href="{{ route('auth.seller.index') }}">Продавцы</a>
+                    <a href="{{ route('auth.stockman.index') }}">Кладовщики</a>
+
                     {{-- <li><a href="{{ route('auth.client.index') }}">Клиенты</a></li> --}}
                 </ul>
             </div>

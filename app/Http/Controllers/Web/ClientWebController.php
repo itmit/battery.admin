@@ -106,4 +106,40 @@ class ClientWebController extends Controller
         ]);
     }
 
+    /**
+     * @return Factory|RedirectResponse|Redirector|View
+     */
+    public function dealer()
+    {
+        return view('client.listOfDealers', [
+            'clients' => Client::where('role', '=', 'dealer')
+                ->orderBy('created_at', 'desc')->get()
+        ]
+        );   
+    }
+
+    /**
+     * @return Factory|RedirectResponse|Redirector|View
+     */
+    public function seller()
+    {
+        return view('client.listOfSellers', [
+            'clients' => Client::where('role', '=', 'seller')
+                ->orderBy('created_at', 'desc')->get()
+        ]
+        );   
+    }
+
+    /**
+     * @return Factory|RedirectResponse|Redirector|View
+     */
+    public function stockman()
+    {
+        return view('client.listOfStockmans', [
+            'clients' => Client::where('role', '=', 'stockman')
+                ->orderBy('created_at', 'desc')->get()
+        ]
+        );   
+    }
+
 }

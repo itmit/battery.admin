@@ -15,7 +15,15 @@
 Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-    Route::resource('client', 'Web\ClientWebController');
+    // Route::resource('client', 'Web\ClientWebController');
+
+    Route::post('dealer/create', 'Web\ClientWebController');
+    Route::post('seller/create', 'Web\ClientWebController');
+    Route::post('stockman/create', 'Web\ClientWebController');
+
+    Route::get('dealer', 'Web\ClientWebController@dealer');
+    Route::get('seller', 'Web\ClientWebController@seller');
+    Route::get('stockman', 'Web\ClientWebController@stockman');
 
 });
 
