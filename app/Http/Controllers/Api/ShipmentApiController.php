@@ -24,12 +24,20 @@ class ShipmentApiController extends ApiBaseController
      */ 
     public function listOfDealers()
     { 
-
         $columns = ['uid', 'login'];
         $dealers = Client::where('role', '=', 'dealer')->get($columns)->toArray();
 
         return $this->sendResponse($dealers, 'List of dealers');
+    }
 
+    /** 
+     * Создает новую отгрузку, состоящую из серийных номеров товара
+     * 
+     * @return Response 
+     */ 
+    public function store()
+    { 
+        return 'a';
     }
     
 }
