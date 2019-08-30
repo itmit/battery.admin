@@ -25,6 +25,10 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('seller', 'Web\ClientWebController@seller')->name('seller');
     Route::get('stockman', 'Web\ClientWebController@stockman')->name('stockman');
 
+    Route::post('dealer/store', 'Web\ClientWebController@storeDealer')->name('storeDealer');
+    Route::post('seller/store', 'Web\ClientWebController@storeseller')->name('storeseller');
+    Route::post('stockman/store', 'Web\ClientWebController@storestockman')->name('storestockman');
+
 });
 
 Auth::routes();

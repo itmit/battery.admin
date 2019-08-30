@@ -159,7 +159,7 @@ class ClientWebController extends Controller
      */
     public function sellerCreate()
     {
-        return view("client.sellerDealer");
+        return view("client.createDealer");
     }
 
     /**
@@ -169,7 +169,40 @@ class ClientWebController extends Controller
      */
     public function stockmanCreate()
     {
-        return view("client.stockmanCreate");
+        return view("client.createStockman");
+    }
+
+    /**
+     * Создает нового диспетчера и редиректит на главную страницу представителя.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function storeDealer(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'login' => 'required|string|max:255|unique:clients',
+            'password' => 'required|string|min:6',
+            'password_confirmation' => 'required|string|min:6|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.dealercreate')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $uid = (string) Str::uuid();
+
+        Client::create([
+            'login' => $request->input('login'),
+            'uid' => $uid,
+            'role' => 'dealer',
+            'password' => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()->route('auth.dealer');
     }
 
 }
