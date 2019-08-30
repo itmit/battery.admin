@@ -42,7 +42,7 @@ class ShipmentApiController extends ApiBaseController
         $validator = Validator::make($request->all(), [
             'uid' => 'required|uuid',
             'serial_numbers' => 'required',
-            'dealer_id' => 'required'
+            'dealer_uid' => 'required|uuid'
         ]);
 
         if ($validator->fails()) {
@@ -53,7 +53,7 @@ class ShipmentApiController extends ApiBaseController
             $record = new Shipment;
             $record->uid = $request->input('uid');
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_id = $request->input('dealer_id');
+            $record->dealer_uid = $request->input('dealer_uid');
             $record->save();
             $id = $record->id;
 
