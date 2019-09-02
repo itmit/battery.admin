@@ -18,6 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('uid');           
             $table->string('login')->unique();
             $table->enum('role', ['stockman', 'dealer', 'seller']);
+            $table->integer('dealer')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

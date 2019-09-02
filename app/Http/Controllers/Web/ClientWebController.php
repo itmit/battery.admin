@@ -159,7 +159,8 @@ class ClientWebController extends Controller
      */
     public function sellerCreate()
     {
-        return view("client.createSeller");
+        $dealers = Client::where('role', '=', 'dealer')->get();
+        return view("client.createSeller", ['delaers' => $dealers]);
     }
 
     /**

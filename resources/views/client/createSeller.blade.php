@@ -21,6 +21,26 @@
                 </div>
             </div>
 
+            <div class="form-group{{ $errors->has('dealer') ? ' has-error' : '' }}">
+                    <label for="login" class="col-md-4 control-label">Дилер</label>
+    
+                    <div class="col-md-6">
+                        <select name="" id="">
+                            
+                            @foreach($dealers as $dealer)
+                            <option value=""></option>
+                            @endforeach
+
+                        </select>
+    
+                        @if ($errors->has('dealer'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('dealer') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label for="password" class="col-md-4 control-label">Пароль</label>
 

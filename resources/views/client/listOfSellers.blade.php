@@ -11,6 +11,7 @@
                     <th><input type="checkbox" name="destroy-all-clients" class="js-destroy-all"/></th>
                     <th>Логин</th>
                     <th>Роль</th>
+                    <th>Дилер</th>
                     <th>Дата создания</th>
                 </tr>
                 </thead>
@@ -20,6 +21,7 @@
                         <td><input type="checkbox" data-client-id="{{ $client->id }}" name="destoy-client-{{ $client->id }}" class="js-destroy"/></td>
                         <td><a href="client/{{ $client->id }}"> {{ $client->login }} </a></td>
                         <td>{{ $client->role }}</td>
+                        <td>{{ $client->dealer }}</td>
                         <td>{{ $client->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
                 @endforeach
