@@ -21,7 +21,7 @@
                         <td><input type="checkbox" data-client-id="{{ $client->id }}" name="destoy-client-{{ $client->id }}" class="js-destroy"/></td>
                         <td><a href="client/{{ $client->id }}"> {{ $client->login }} </a></td>
                         <td>{{ $client->role }}</td>
-                        <td>{{ $client->dealer }}</td>
+                        <td><a href="client/{{ $client->dealer }}"> {{ $client->dealer }} </a></td>
                         <td>{{ $client->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
                 @endforeach
