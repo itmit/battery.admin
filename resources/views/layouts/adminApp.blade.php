@@ -75,19 +75,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3 left-menu">
-                <ul class="nav">
-
-                    {{-- <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li> --}}
-                    <a href="{{ route('auth.home') }}">Главная</a>
-                    <br>
-                    <br>
-                    {{-- <a href="{{ route('auth.client.index') }}">Клиенты</a> --}}
-
-                    <a href="{{ route('auth.dealer') }}">Дилеры</a>
-                    <a href="{{ route('auth.seller') }}">Продавцы</a>
-                    <a href="{{ route('auth.stockman') }}">Кладовщики</a>
-
-                    {{-- <li><a href="{{ route('auth.client.index') }}">Клиенты</a></li> --}}
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ route('auth.home') }}">Главная</a></li>
+                    <li class="list-group-item"><a href="{{ route('auth.dealer') }}">Дилеры</a></li>
+                    <li class="list-group-item"><a href="{{ route('auth.seller') }}">Продавцы</a></li>
+                    <li class="list-group-item"><a href="{{ route('auth.stockman') }}">Кладовщики</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 tabs-content">
