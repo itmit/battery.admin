@@ -25,10 +25,11 @@
                     <label for="login" class="col-md-4 control-label">Дилер</label>
     
                     <div class="col-md-6">
-                        <select name="" id="">
+
+                        <select name="dealer" id="dealer">
 
                             @foreach($dealers as $dealer)
-                                <option value=""></option>
+                                <option value="{{ $dealer->id }}">{{ $dealer->login }}</option>
                             @endforeach
 
                         </select>
