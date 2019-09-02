@@ -15,7 +15,7 @@
 Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-    // Route::resource('client', 'Web\ClientWebController');
+    Route::resource('client', 'Web\ClientWebController');
 
     Route::get('dealer/create', 'Web\ClientWebController@dealerCreate')->name('dealercreate');
     Route::get('seller/create', 'Web\ClientWebController@sellerCreate')->name('sellercreate');
