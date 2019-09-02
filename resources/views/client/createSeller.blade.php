@@ -26,9 +26,9 @@
     
                     <div class="col-md-6">
                         <select name="" id="">
-                            
+
                             @foreach($dealers as $dealer)
-                            <option value=""></option>
+                                <option value=""></option>
                             @endforeach
 
                         </select>
