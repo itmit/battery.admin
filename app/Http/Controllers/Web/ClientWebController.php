@@ -218,6 +218,7 @@ class ClientWebController extends Controller
             'login' => 'required|string|max:255|unique:clients',
             'password' => 'required|string|min:6',
             'password_confirmation' => 'required|string|min:6|same:password',
+            'dealer' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -233,6 +234,7 @@ class ClientWebController extends Controller
             'login' => $request->input('login'),
             'uid' => $uid,
             'role' => 'seller',
+            'dealer' => $request->input('dealer'),
             'password' => bcrypt($request->input('password'))
         ]);
 
