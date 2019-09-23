@@ -13,13 +13,9 @@ class Client extends Authenticatable
     protected $table = 'clients';
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [
-        'uid', 'login', 'password', 'role', 'dealer',
-    ];
+    protected $guarded = ['id'];
 
     protected $username = 'name';
 

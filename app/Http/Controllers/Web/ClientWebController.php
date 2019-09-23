@@ -41,7 +41,7 @@ class ClientWebController extends Controller
     }
 
     /**
-     * Создает нового диспетчера и редиректит на главную страницу представителя.
+     * 
      *
      * @param Request $request
      * @return RedirectResponse

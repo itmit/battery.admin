@@ -11,10 +11,7 @@ class ShipmentGoods extends Model
     /**
      * @var array
      */
-    protected $fillable = [
-        'shipment_id',
-        'serial_number',
-    ];
+    protected $guarded = ['id'];
 
     /**
      * @var string

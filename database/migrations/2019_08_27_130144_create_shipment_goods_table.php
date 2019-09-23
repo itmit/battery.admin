@@ -15,7 +15,7 @@ class CreateShipmentGoodsTable extends Migration
     {
         Schema::create('shipment_goods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('shipment_id');
+            $table->bigInteger('shipment_id')->unsigned();
             $table->string('serial_number');
             $table->timestamps();
 
