@@ -24,7 +24,7 @@ class DeliveryWebController extends Controller
     public function checkFilesInUploadedFolder()
     {
         $directory = '/public';
-        $files = Storage::allFiles($directory);
+        $files = Storage::Files($directory);
         return $files;
     }
 
