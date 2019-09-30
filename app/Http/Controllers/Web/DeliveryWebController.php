@@ -27,7 +27,7 @@ class DeliveryWebController extends Controller
         $files = Storage::files($directory);
         if($files != null)
         {
-            return $files[0];
+            return substr(strrchr($files[0], "/"), 1);
             self::getDeliveryFromUploadedCSVFile($files);
         }
         // return $files;
