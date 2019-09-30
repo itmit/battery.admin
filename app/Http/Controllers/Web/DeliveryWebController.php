@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-use maatwebsite\Excel;
+use Maatwebsite\Excel\Excel;
 
 class DeliveryWebController extends Controller
 {
