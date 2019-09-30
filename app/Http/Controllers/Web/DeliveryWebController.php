@@ -25,7 +25,7 @@ class DeliveryWebController extends Controller
     {
         $directory = '/csv_upload';
         $files = Storage::allFiles($directory);
-        return $files;
+        return $directory;
     }
 
     public function getDeliveryFromUploadedCSVFile()
