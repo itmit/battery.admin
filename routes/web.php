@@ -31,6 +31,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
 });
 
+Route::get('checkFiles', 'Web\DeliveryWebController@checkFilesInUploadedFolder')->name('checkFilesInUploadedFolder');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
