@@ -15,6 +15,7 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integet('delivery_number')->nullable();
             $table->boolean('type');
             $table->timestamps();
 

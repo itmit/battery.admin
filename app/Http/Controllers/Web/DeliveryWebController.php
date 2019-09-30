@@ -25,12 +25,24 @@ class DeliveryWebController extends Controller
     {
         $directory = 'public/csv_upload';
         $files = Storage::files($directory);
-        return $files;
+        if($files != null)
+        {
+            return $files[0];
+            self::getDeliveryFromUploadedCSVFile($files);
+        }
+        // return $files;
     }
 
-    public function getDeliveryFromUploadedCSVFile()
+    public function getDeliveryFromUploadedCSVFile(array $files)
     {
+        Excel::load('characters.csv')->each(function (Collection $csvLine) {
 
+            Character::create([
+                'name' => "{$csvLine->get('first_name')} {$csvLine->get('last_name')}",
+                'job' => $csvLine->get('job'),
+            ]);
+       
+       });
     }
 
 }
