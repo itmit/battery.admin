@@ -38,19 +38,34 @@ class DeliveryWebController extends Controller
     {
         foreach($files as $file)
         {
-            // Delivery::create([
-            //     'delivery_number' => 
-            // ]);
-            Excel::load(substr(strrchr($file, "/"), 1))->each(function (Collection $csvLine) {
+        //     // Delivery::create([
+        //     //     'delivery_number' => 
+        //     // ]);
+        //     Excel::load(substr(strrchr($file, "/"), 1))->each(function (Collection $csvLine) {
 
-                // DeliveryDetails::create([
-                //     'name' => "{$csvLine->get('first_name')} {$csvLine->get('last_name')}",
-                //     'job' => $csvLine->get('job'),
-                // ]);
+        //         // DeliveryDetails::create([
+        //         //     'name' => "{$csvLine->get('first_name')} {$csvLine->get('last_name')}",
+        //         //     'job' => $csvLine->get('job'),
+        //         // ]);
 
-                    echo $csvLine->get('serial_number') . ' | ';
+        //             echo $csvLine->get('serial_number') . ' | ';
            
-           });
+        //    });
+            $handle = fopen(substr(strrchr($file, "/"), 1), "r");
+            $header = true;
+
+            while ($csvLine = fgetcsv($handle, 1000, ";")) {
+
+                if ($header) {
+                    $header = false;
+                } else {
+                    echo $csvLine[0] . ' | ';
+                    // Character::create([
+                    //     'name' => $csvLine[0] . ' ' . $csvLine[1],
+                    //     'job' => $csvLine[2],
+                    // ]);
+                }
+            }
         }
         
     }
