@@ -23,8 +23,8 @@ class DeliveryWebController extends Controller
 
     public function checkFilesInUploadedFolder()
     {
-        $directory = '/public';
-        $files = Storage::Files($directory);
+        $directory = 'public/csv_upload';
+        $files = Storage::files($directory);
         return $files;
     }
 
