@@ -35,14 +35,23 @@ class DeliveryWebController extends Controller
 
     public function getDeliveryFromUploadedCSVFile(array $files)
     {
-        Excel::load('characters.csv')->each(function (Collection $csvLine) {
+        foreach($files as $file)
+        {
+            // Delivery::create([
+            //     'delivery_number' => 
+            // ]);
+            Excel::load(substr(strrchr($file, "/"), 1))->each(function (Collection $csvLine) {
 
-            Character::create([
-                'name' => "{$csvLine->get('first_name')} {$csvLine->get('last_name')}",
-                'job' => $csvLine->get('job'),
-            ]);
-       
-       });
+                // DeliveryDetails::create([
+                //     'name' => "{$csvLine->get('first_name')} {$csvLine->get('last_name')}",
+                //     'job' => $csvLine->get('job'),
+                // ]);
+
+                    echo $csvLine->get('serial_number') . ' | ';
+           
+           });
+        }
+        
     }
 
 }
