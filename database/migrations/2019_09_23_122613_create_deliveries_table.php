@@ -15,7 +15,11 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('type');
             $table->timestamps();
+
+            // $table->foreign('shipment_id')->references('id')->on('shipments')
+            //     ->onUpdate('cascade');
         });
     }
 
