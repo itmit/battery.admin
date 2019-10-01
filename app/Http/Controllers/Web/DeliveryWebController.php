@@ -52,11 +52,8 @@ class DeliveryWebController extends Controller
         //             echo $csvLine->get('serial_number') . ' | ';
            
         //    });
-        return $file;
             $url = Storage::url($file);
-            return $url;
             $url = asset($url);
-            return $url;
             $handle = fopen($url, "r");
             $header = true;
 
