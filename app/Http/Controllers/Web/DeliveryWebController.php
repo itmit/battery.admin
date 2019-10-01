@@ -52,7 +52,8 @@ class DeliveryWebController extends Controller
         //             echo $csvLine->get('serial_number') . ' | ';
            
         //    });
-            return $path = base_path();
+            $path = base_path();
+            return $path .= '/storage/app/public/csv_upload';
             $url = Storage::url($file);
             $url = asset($url);
             return $url;
