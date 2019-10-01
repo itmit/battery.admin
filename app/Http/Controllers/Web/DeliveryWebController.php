@@ -47,7 +47,7 @@ class DeliveryWebController extends Controller
             $handle = fopen($url, "r");
             $header = true;
 
-            return substr(substr(strrchr($file, "/"), 1), -3);
+            return stristr(substr(strrchr($file, "/"), 1), ".", true);
 
             while ($csvLine = fgetcsv($handle, 1000, ";")) {
 
