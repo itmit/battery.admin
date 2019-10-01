@@ -59,8 +59,6 @@ class DeliveryWebController extends Controller
                 return 'Somebody once told me';
             }
 
-            return $delivery->id;
-
             while ($csvLine = fgetcsv($handle, 1000, ";")) {
 
                 if ($header) {
@@ -69,18 +67,18 @@ class DeliveryWebController extends Controller
                     echo $csvLine[0] . ' | ';
                     DeliveryDetails::create([
                         'delivery_id' => $delivery->id,
-                        'serial_number' => $csvLine[2],
-                        'delivery_note' => $csvLine[2],
+                        'serial_number' => $csvLine[0],
+                        'delivery_note' => $csvLine[1],
                         'SSCC' => $csvLine[2],
-                        'TAB_ID' => $csvLine[2],
-                        'production_date' => $csvLine[2],
-                        'delivery_date' => $csvLine[2],
-                        'TAB_description' => $csvLine[2],
-                        'CustomerOrderNumber' => $csvLine[2],
-                        'Customer_Buyer' => $csvLine[2],
-                        'Customer_buyer_ID' => $csvLine[2],
-                        'Customer_Receiver' => $csvLine[2],
-                        'Customer_Receiver_ID' => $csvLine[2],
+                        'TAB_ID' => $csvLine[3],
+                        'production_date' => $csvLine[4],
+                        'delivery_date' => $csvLine[5],
+                        'TAB_description' => $csvLine[6],
+                        'CustomerOrderNumber' => $csvLine[7],
+                        'Customer_Buyer' => $csvLine[8],
+                        'Customer_buyer_ID' => $csvLine[9],
+                        'Customer_Receiver' => $csvLine[10],
+                        'Customer_Receiver_ID' => $csvLine[11],
                     ]);
                 }
             }
