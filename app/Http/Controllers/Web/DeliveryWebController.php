@@ -53,6 +53,7 @@ class DeliveryWebController extends Controller
            
         //    });
             $url = Storage::url($file);
+            return $url;
             $url = asset($url);
             return $url;
             $handle = fopen($url, "r");
