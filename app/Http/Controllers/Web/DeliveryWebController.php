@@ -29,7 +29,7 @@ class DeliveryWebController extends Controller
         if($files != null)
         {
             // return substr(strrchr($files[0], "/"), 1);
-            self::getDeliveryFromUploadedCSVFile($files);
+            return self::getDeliveryFromUploadedCSVFile($files);
         }
         else return 'Folder is empty';
         // return $files;
@@ -37,6 +37,7 @@ class DeliveryWebController extends Controller
 
     public function getDeliveryFromUploadedCSVFile(array $files, $delimiter = ';')
     {
+        return 'a';
         foreach($files as $file)
         {
         //     // Delivery::create([
@@ -52,7 +53,6 @@ class DeliveryWebController extends Controller
         //             echo $csvLine->get('serial_number') . ' | ';
            
         //    });
-        return 'a';
             $url = Storage::url($file);
             $url = asset($url);
             $handle = fopen($url, "r");
