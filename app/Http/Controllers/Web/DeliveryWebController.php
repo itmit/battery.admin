@@ -31,10 +31,11 @@ class DeliveryWebController extends Controller
             // return substr(strrchr($files[0], "/"), 1);
             self::getDeliveryFromUploadedCSVFile($files);
         }
+        else return 'Folder is empty';
         // return $files;
     }
 
-    public function getDeliveryFromUploadedCSVFile(array $files)
+    public function getDeliveryFromUploadedCSVFile(array $files, $delimiter = ';')
     {
         foreach($files as $file)
         {
