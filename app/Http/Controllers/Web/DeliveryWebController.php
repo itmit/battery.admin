@@ -37,7 +37,6 @@ class DeliveryWebController extends Controller
 
     public function getDeliveryFromUploadedCSVFile(array $files, $delimiter = ';')
     {
-        return 'a';
         foreach($files as $file)
         {
         //     // Delivery::create([
@@ -55,6 +54,7 @@ class DeliveryWebController extends Controller
         //    });
             $url = Storage::url($file);
             $url = asset($url);
+            return $url;
             $handle = fopen($url, "r");
             $header = true;
 
