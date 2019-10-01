@@ -47,7 +47,7 @@ class DeliveryWebController extends Controller
             $handle = fopen($url, "r");
             $header = true;
 
-            return basename($handle);
+            return $file;
 
             while ($csvLine = fgetcsv($handle, 1000, ";")) {
 
