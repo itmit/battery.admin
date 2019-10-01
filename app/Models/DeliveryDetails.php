@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeliveryDetails extends Model
 {
-    //
+    protected $table = 'delivery_details';
+
+    protected $guarded = ['id'];    
 }
