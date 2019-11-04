@@ -24,8 +24,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('shipment/listOfDealers', 'Api\ShipmentApiController@listOfDealers');
     Route::post('shipment/store', 'Api\ShipmentApiController@store');
 
-    Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
+    
 });
+
+Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
 
 Route::fallback(function () {
     $code = 404;
