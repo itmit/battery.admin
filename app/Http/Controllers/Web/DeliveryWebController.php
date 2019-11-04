@@ -51,6 +51,7 @@ class DeliveryWebController extends Controller
 
             $delivery = Delivery::create([
                 'delivery_number' => $delivery_number,
+                'uuid' => (string) Str::uuid(),
                 'type' => 0,
             ]);
 
@@ -64,7 +65,6 @@ class DeliveryWebController extends Controller
                 if ($header) {
                     $header = false;
                 } else {
-                    echo $csvLine[0] . ' | ';
                     DeliveryDetails::create([
                         'delivery_id' => $delivery->id,
                         'serial_number' => $csvLine[0],
