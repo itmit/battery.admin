@@ -78,7 +78,7 @@ class DeliveryApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 401);
         }
 
-        $battery = DeliveryDetails::where('serial_number', '=', $request->serial_number)->latest()->first();
+        $battery = DeliveryDetails::where('serial_number', '=', $request->serial_number)->latest()->first()->toArray();
 
         if($battery == NULL)
         {
