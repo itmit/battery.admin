@@ -8,5 +8,5 @@ class DeliveryDetails extends Model
 {
     protected $table = 'delivery_details';
 
-    protected $guarded = ['id'];    
+    protected $hidden = ['id'];    
 }
