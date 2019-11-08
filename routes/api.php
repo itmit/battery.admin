@@ -21,8 +21,8 @@ Route::post('login', 'Api\AuthController@login');
 Route::group(['middleware' => 'auth:api'], function() {
     // Route::post('details', 'Api\ClientController@details');
 
-    Route::post('shipment/listOfDealers', 'Api\ShipmentApiController@listOfDealers');
-    Route::post('shipment/store', 'Api\ShipmentApiController@store');
+    Route::post('delivery/listOfDealers', 'Api\DeliveryApiController@listOfDealers');
+    Route::post('delivery/store', 'Api\DeliveryApiController@store');
 
     
 });
