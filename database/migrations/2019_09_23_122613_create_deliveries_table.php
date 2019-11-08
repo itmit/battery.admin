@@ -17,7 +17,9 @@ class CreateDeliveriesTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->integet('delivery_number')->nullable();
-            $table->boolean('type');
+            $table->boolean('type')->default(0);
+            $table->bigInteger('client_id')->unsigned()->nullable();
+            $table->uuid('dealer_uuid')->nullable();
             $table->timestamps();
 
             // $table->foreign('shipment_id')->references('id')->on('shipments')

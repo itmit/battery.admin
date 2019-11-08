@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DeliveryApiController extends ApiBaseController
 {
@@ -40,9 +41,8 @@ class DeliveryApiController extends ApiBaseController
     public function store(Request $request)
     { 
         $validator = Validator::make($request->all(), [
-            'uuid' => 'required|uuid',
             'serial_numbers' => 'required',
-            'dealer_uid' => 'required|uuid'
+            'dealer_uuid' => 'required|uuid'
         ]);
 
         if ($validator->fails()) {
@@ -51,15 +51,16 @@ class DeliveryApiController extends ApiBaseController
 
         DB::beginTransaction();
             $record = new Delivery;
-            $record->uuid = $request->input('uuid');
+            $record->uuid = (string) Str::uuid();
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_uid = $request->input('dealer_uid');
+            $record->dealer_uid = $request->input('dealer_uuid');
+            $record->type = 1;
             $record->save();
             $id = $record->id;
 
             foreach ($request->serial_numbers as $serial_number) {
-                $record = new ShipmentGoods;
-                $record->shipment_id = $id;
+                $record = new DeliveryDetails;
+                $record->delivery_id = $id;
                 $record->serial_number = $serial_number;
                 $record->save();
             }
