@@ -53,7 +53,7 @@ class DeliveryApiController extends ApiBaseController
             $record = new Delivery;
             $record->uuid = (string) Str::uuid();
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_uid = $request->input('dealer_uuid');
+            $record->dealer_uuid = $request->input('dealer_uuid');
             $record->type = 1;
             $record->save();
             $id = $record->id;
