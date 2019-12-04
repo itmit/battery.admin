@@ -38,7 +38,7 @@ abstract class ApiBaseController extends Controller
      * @param int $code
      * @return JsonResponseAlias
      */
-    public function sendError(string $error, $errorMessages = [], int $code = 404): JsonResponseAlias
+    public function sendError(string $error, $errorMessages = "", int $code = 404): JsonResponseAlias
     {
         $response = [
             'success' => false,
