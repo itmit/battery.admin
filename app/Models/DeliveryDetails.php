@@ -9,4 +9,6 @@ class DeliveryDetails extends Model
     protected $table = 'delivery_details';
 
     protected $hidden = ['id'];    
+
+    protected $guarded = ['id'];
 }
