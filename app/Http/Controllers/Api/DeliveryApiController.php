@@ -88,5 +88,12 @@ class DeliveryApiController extends ApiBaseController
 
         return $this->sendResponse($battery, 'Аккумулятор');
     }
+
+    public function listOfDeliveries(Request $request)
+    { 
+        $deliveries = Delivery::all()->toArray();
+
+        return $this->sendResponse($deliveries, 'List of deliveries');
+    }
     
 }
