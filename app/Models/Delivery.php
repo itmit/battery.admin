@@ -9,4 +9,6 @@ class Delivery extends Model
     protected $table = 'deliveries';
 
     protected $hidden = ['id'];
+
+    protected $guarded = ['id'];
 }
