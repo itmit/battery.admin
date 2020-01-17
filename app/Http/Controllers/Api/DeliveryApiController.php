@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Models\Client;
 use App\Models\Delivery;
 use App\Models\DeliveryDetails;
+use App\Models\Shipment;
+use App\Models\ShipmentGoods;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -50,16 +52,16 @@ class DeliveryApiController extends ApiBaseController
         }
 
         DB::beginTransaction();
-            $record = new Delivery;
-            $record->uuid = (string) Str::uuid();
+            $record = new Shipment;
+            $record->uid = (string) Str::uuid();
             $record->client_id = auth('api')->user()->id;
             $record->dealer_uuid = $request->input('dealer_uuid');
-            $record->type = 1;
             $record->save();
+
             $id = $record->id;
 
             foreach ($request->serial_numbers as $serial_number) {
-                $record = new DeliveryDetails;
+                $record = new ShipmentGoods;
                 $record->delivery_id = $id;
                 $record->serial_number = $serial_number;
                 $record->save();
@@ -91,9 +93,13 @@ class DeliveryApiController extends ApiBaseController
 
     public function listOfDeliveries(Request $request)
     { 
-        $deliveries = Delivery::all()->toArray();
+        $data = [];
 
-        return $this->sendResponse($deliveries, 'List of deliveries');
+        $data['deliveries'] = Delivery::all()->toArray();
+
+        $data['shipments'] = Shipment::all()->toArray();
+
+        return $this->sendResponse($data, 'List of deliveries');
     }
     
 }
