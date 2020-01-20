@@ -71,7 +71,7 @@ class ShipmentApiController extends ApiBaseController
                 }
 
                 ShipmentGoods::create([
-                    'delivery_id' => $id,
+                    'shipment_id' => $id,
                     'serial_number' => $battery->serial_number,
                     'delivery_note' => $battery->delivery_note,
                     'SSCC' => $battery->SSCC,
