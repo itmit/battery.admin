@@ -58,7 +58,8 @@ class ShipmentApiController extends ApiBaseController
             $record = new Shipment;
             $record->uuid = Str::uuid();
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_uuid = $data['dealer_uuid'];
+            $record->dealer_uuid = 
+            $data->dealer_uuid;
             $record->save();
             $id = $record->id;
 
