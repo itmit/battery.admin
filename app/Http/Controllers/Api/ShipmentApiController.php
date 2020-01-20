@@ -51,15 +51,14 @@ class ShipmentApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 401);
         }
 
-        $data = $request;
+        $this->$data = $request;
         // return $data->dealer_uuid;
 
         DB::transaction(function ($data) {
             $record = new Shipment;
             $record->uuid = Str::uuid();
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_uuid = 
-            $data->dealer_uuid;
+            $record->dealer_uuid = $data->dealer_uuid;
             $record->save();
             $id = $record->id;
 
