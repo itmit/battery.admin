@@ -28,6 +28,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('shipment/store', 'Api\ShipmentApiController@store');
 
     Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
+
+    Route::get('checkDeliveryAndShipment/listOfDeliveries', 'Api\CheckDeliveryAndShipmentController@getDeliveries');
+    Route::get('checkDeliveryAndShipment/listOfShipments', 'Api\CheckDeliveryAndShipmentController@getShipments');
+    Route::get('checkDeliveryAndShipment/listOfDeliveriesAndShipments', 'Api\CheckDeliveryAndShipmentController@listOfDeliveries');
 });
 
 Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
