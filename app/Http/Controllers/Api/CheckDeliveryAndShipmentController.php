@@ -44,5 +44,25 @@ class CheckDeliveryAndShipmentController extends ApiBaseController
 
         return $this->sendResponse($data, 'Список отгрузок');
     }
+
+    public function getBatteriesFromDelivery(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'delivery_uuid' => 'required'
+        ]);
+        $delivery = Delivery::where('uuid', '=', $request->delivery_uuid)->first();
+        $batteries = DeliveryDetails::where('delivery_id', '=', $delivery->id)->toArray();
+        return $this->sendResponse($batteries, 'Список батарей');
+    }
+
+    public function getBatteriesFromShipment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'shipment_uuid' => 'required'
+        ]);
+        $delivery = Shipment::where('uuid', '=', $request->shipment_uuid)->first();
+        $batteries = ShipmentGoods::where('shipment_id', '=', $delivery->id)->toArray();
+        return $this->sendResponse($batteries, 'Список батарей');
+    }
     
 }
