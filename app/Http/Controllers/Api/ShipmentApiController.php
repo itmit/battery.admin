@@ -52,7 +52,7 @@ class ShipmentApiController extends ApiBaseController
         }
 
         $data = $request;
-        return $data;
+        return $data->dealer_uuid;
 
         DB::transaction(function ($data) {
             $record = new Shipment;
