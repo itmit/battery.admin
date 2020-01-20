@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     Route::get('checkDeliveryAndShipment/listOfDeliveries', 'Api\CheckDeliveryAndShipmentController@getDeliveries');
     Route::get('checkDeliveryAndShipment/listOfShipments', 'Api\CheckDeliveryAndShipmentController@getShipments');
-    Route::get('checkDeliveryAndShipment/listOfDeliveriesAndShipments', 'Api\CheckDeliveryAndShipmentController@listOfDeliveries');
+    Route::get('checkDeliveryAndShipment/listOfDeliveriesAndShipments', 'Api\CheckDeliveryAndShipmentController@getDeliveriesAndShipments');
 });
 
 Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
