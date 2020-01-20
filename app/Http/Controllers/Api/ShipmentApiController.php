@@ -58,11 +58,11 @@ class ShipmentApiController extends ApiBaseController
             $record = new Shipment;
             $record->uuid = Str::uuid();
             $record->client_id = auth('api')->user()->id;
-            $record->dealer_uuid = $data->dealer_uuid;
+            $record->dealer_uuid = $request->dealer_uuid;
             $record->save();
             $id = $record->id;
 
-            foreach ($data->serial_numbers as $serial_number) {
+            foreach ($request->serial_numbers as $serial_number) {
                 $battery = DeliveryDetails::where('serial_number', '=', $serial_number)->first();
 
                 if(!$battery)
