@@ -15,7 +15,7 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uid');
+            $table->uuid('uuid');
             $table->bigInteger('client_id')->unsigned();
             $table->uuid('dealer_uid');
             $table->timestamps();
