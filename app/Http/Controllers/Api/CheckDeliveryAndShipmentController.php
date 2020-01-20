@@ -38,7 +38,11 @@ class CheckDeliveryAndShipmentController extends ApiBaseController
 
     public function getDeliveriesAndShipments()
     {
+        $data = [];
+        $data['deliveries'] = Delivery::all()->toArray();
+        $data['shipments'] = Shipment::all()->toArray();
 
+        return $this->sendResponse($data, 'Список отгрузок');
     }
     
 }
