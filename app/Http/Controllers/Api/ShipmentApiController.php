@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ShipmentApiController extends ApiBaseController
 {
@@ -49,9 +50,9 @@ class ShipmentApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 401);
         }
 
-        DB::transaction(function () {
+        DB::transaction(function ($request) {
             $record = new Shipment;
-            $record->uuid = $request->input('uid');
+            $record->uuid = Str::uuid();
             $record->client_id = auth('api')->user()->id;
             $record->dealer_uuid = $request->input('dealer_uuid');
             $record->save();

@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('delivery/store', 'Api\DeliveryApiController@store');
 
     Route::post('shipment/store', 'Api\ShipmentApiController@store');
+
+    Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
 });
 
 Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
