@@ -17,6 +17,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::resource('client', 'Web\ClientWebController');
 
+    Route::resource('news', 'Web\NewsWebController');
+
     Route::get('dealer/create', 'Web\ClientWebController@dealerCreate')->name('dealercreate');
     Route::get('seller/create', 'Web\ClientWebController@sellerCreate')->name('sellercreate');
     Route::get('stockman/create', 'Web\ClientWebController@stockmanCreate')->name('stockmancreate');

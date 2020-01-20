@@ -35,41 +35,41 @@ class DeliveryApiController extends ApiBaseController
         return $this->sendResponse($dealers, 'List of dealers');
     }
 
-    /** 
-     * Создает новую отгрузку, состоящую из серийных номеров товара
-     * 
-     * @return Response 
-     */ 
-    public function store(Request $request)
-    { 
-        $validator = Validator::make($request->all(), [
-            'serial_numbers' => 'required',
-            'dealer_uuid' => 'required|uuid'
-        ]);
+    // /** 
+    //  * Создает новую отгрузку, состоящую из серийных номеров товара
+    //  * 
+    //  * @return Response 
+    //  */ 
+    // public function store(Request $request)
+    // { 
+    //     $validator = Validator::make($request->all(), [
+    //         'serial_numbers' => 'required',
+    //         'dealer_uuid' => 'required|uuid'
+    //     ]);
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors(), "Validation error", 401);
-        }
+    //     if ($validator->fails()) {
+    //         return $this->sendError($validator->errors(), "Validation error", 401);
+    //     }
 
-        DB::beginTransaction();
-            $record = new Shipment;
-            $record->uid = (string) Str::uuid();
-            $record->client_id = auth('api')->user()->id;
-            $record->dealer_uuid = $request->input('dealer_uuid');
-            $record->save();
+    //     DB::beginTransaction();
+    //         $record = new Shipment;
+    //         $record->uid = (string) Str::uuid();
+    //         $record->client_id = auth('api')->user()->id;
+    //         $record->dealer_uuid = $request->input('dealer_uuid');
+    //         $record->save();
 
-            $id = $record->id;
+    //         $id = $record->id;
 
-            foreach ($request->serial_numbers as $serial_number) {
-                $record = new ShipmentGoods;
-                $record->delivery_id = $id;
-                $record->serial_number = $serial_number;
-                $record->save();
-            }
-        DB::commit();
+    //         foreach ($request->serial_numbers as $serial_number) {
+    //             $record = new ShipmentGoods;
+    //             $record->delivery_id = $id;
+    //             $record->serial_number = $serial_number;
+    //             $record->save();
+    //         }
+    //     DB::commit();
 
-        return 'a';
-    }
+    //     return 'a';
+    // }
 
     public function checkBattery(Request $request)
     { 

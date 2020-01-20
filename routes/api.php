@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('delivery/listOfDeliveries', 'Api\DeliveryApiController@listOfDeliveries');
     Route::post('delivery/store', 'Api\DeliveryApiController@store');
 
-    
+    Route::post('shipment/store', 'Api\ShipmentApiController@store');
 });
 
 Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
