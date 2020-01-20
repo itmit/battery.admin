@@ -51,7 +51,7 @@ class CheckDeliveryAndShipmentController extends ApiBaseController
             'delivery_uuid' => 'required'
         ]);
         $delivery = Delivery::where('uuid', '=', $request->delivery_uuid)->first();
-        $batteries = DeliveryDetails::where('delivery_id', '=', $delivery->id)->toArray();
+        $batteries = DeliveryDetails::where('delivery_id', '=', $delivery->id)->get()->toArray();
         return $this->sendResponse($batteries, 'Список батарей');
     }
 
@@ -61,7 +61,7 @@ class CheckDeliveryAndShipmentController extends ApiBaseController
             'shipment_uuid' => 'required'
         ]);
         $delivery = Shipment::where('uuid', '=', $request->shipment_uuid)->first();
-        $batteries = ShipmentGoods::where('shipment_id', '=', $delivery->id)->toArray();
+        $batteries = ShipmentGoods::where('shipment_id', '=', $delivery->id)->get()->toArray();
         return $this->sendResponse($batteries, 'Список батарей');
     }
     
