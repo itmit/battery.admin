@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 class ShipmentApiController extends ApiBaseController
 {
     public $successStatus = 200;
-    private $data = null;
+    public $data = null;
 
     /** 
      * Возвращает список дилеров
@@ -52,7 +52,7 @@ class ShipmentApiController extends ApiBaseController
         }
 
         $data = $request;
-        return $data->dealer_uuid;
+        // return $data->dealer_uuid;
 
         DB::transaction(function ($data) {
             $record = new Shipment;
