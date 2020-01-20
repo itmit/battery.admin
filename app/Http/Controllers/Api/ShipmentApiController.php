@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 class ShipmentApiController extends ApiBaseController
 {
     public $successStatus = 200;
+    private $data = null;
 
     /** 
      * Возвращает список дилеров
@@ -50,7 +51,9 @@ class ShipmentApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 401);
         }
 
-        DB::transaction(function ($request) {
+        $data = $request;
+
+        DB::transaction(function ($data) {
             $record = new Shipment;
             $record->uuid = Str::uuid();
             $record->client_id = auth('api')->user()->id;
