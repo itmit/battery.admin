@@ -119,7 +119,7 @@ class CatalogController extends Controller
 
         $cells = $spreadsheet->getActiveSheet()->getCellCollection();
 
-        for ($row = 107; $row <= 113; $row++){
+        for ($row = 118; $row <= 128; $row++){
             for ($col = 'B'; $col <= 'Q'; $col++) {
                 if($cells->get($col.$row) == null) $position[$col] = null;
                 else $position[$col] = $cells->get($col.$row)->getValue();
@@ -131,7 +131,7 @@ class CatalogController extends Controller
         foreach($result as $item)
         {
             Battery::create([
-                'category_id' => 5,
+                'category_id' => 6,
                 'tab_id' => $item["B"],
                 'neutral_id' => $item["C"],
                 'din_marking' => $item["D"],
