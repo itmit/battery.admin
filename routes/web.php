@@ -31,6 +31,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::post('seller/store', 'Web\ClientWebController@storeseller')->name('storeSeller');
     Route::post('stockman/store', 'Web\ClientWebController@storestockman')->name('storeStockman');
 
+    Route::post('/uploadcatalog', 'Web\CatalogController@uploadCatalog')->name('uploadCatalog');
+
 });
 
 Route::get('checkFiles', 'Web\DeliveryWebController@checkFilesInUploadedFolder')->name('checkFilesInUploadedFolder');
