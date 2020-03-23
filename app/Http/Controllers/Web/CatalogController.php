@@ -110,6 +110,8 @@ class CatalogController extends Controller
                 ->withInput();
         }
 
+        return 'Access denied';
+
         $file = $request->file('file');
         $reader = new Xls();
         $reader->setReadDataOnly(true);
