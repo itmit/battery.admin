@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadCatalog') }}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('auth.uploadCatalog') }}">
                         {{ csrf_field() }}
 
                         <br>
