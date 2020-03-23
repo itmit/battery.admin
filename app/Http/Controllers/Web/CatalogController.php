@@ -119,7 +119,7 @@ class CatalogController extends Controller
 
         $cells = $spreadsheet->getActiveSheet()->getCellCollection();
 
-        for ($row = 64; $row <= 102; $row++){
+        for ($row = 84; $row <= 102; $row++){
             for ($col = 'B'; $col <= 'Q'; $col++) {
                 if($cells->get($col.$row) == null) $position[$col] = null;
                 else $position[$col] = $cells->get($col.$row)->getValue();
