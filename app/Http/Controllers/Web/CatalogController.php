@@ -111,6 +111,10 @@ class CatalogController extends Controller
         }
 
         $file = $request->file('file');
-        dd($file);
+        $reader = new Xlsx();
+        $reader->setReadDataOnly(true);
+        
+        // $url = storage_path() . '/app/catalog_upload/' . $file;
+        $spreadsheet = $reader->load($file);
     }
 }
