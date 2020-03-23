@@ -15,7 +15,8 @@
         "laravel/passport": "^7.4",
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^3.1",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "phpoffice/phpspreadsheet": "^1.11"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
