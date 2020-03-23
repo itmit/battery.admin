@@ -29,7 +29,7 @@ class CreateBatteriesTable extends Migration
             $table->string('l_w_h')->nullable();
             $table->string('bhd')->nullable();
             $table->string('layout')->nullable();
-            $table->float('weight_wt', 5, 1)->nullable();
+            $table->float('weight_wet', 5, 1)->nullable();
             $table->string('pcs_pallet')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();

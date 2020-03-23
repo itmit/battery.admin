@@ -128,6 +128,27 @@ class CatalogController extends Controller
             $position = [];
         }
 
-        dd($result);
+        foreach($result as $item)
+        {
+            Battery::create([
+                'category_id' => 1,
+                'tab_id' => $item["B"],
+                'neutral_id' => $item["C"],
+                'din_marking' => $item["D"],
+                'old_jis_marking' => $item["E"],
+                'new_jis_marking' => $item["F"],
+                'short_code' => $item["G"],
+                'ah' => $item["H"],
+                'rc' => $item["I"],
+                'box' => $item["J"],
+                'en' => $item["K"],
+                'l_w_h' => $item["L"],
+                'bhd' => $item["M"],
+                'layout' => $item["N"],
+                'weight_wet' => $item["O"],
+                'pcs_pallet' => $item["P"],
+                'remarks' => $item["Q"],
+            ]);
+        }
     }
 }
