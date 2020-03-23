@@ -128,6 +128,6 @@ class CatalogController extends Controller
             $position = [];
         }
 
-        return $result;
+        dd($result);
     }
 }
