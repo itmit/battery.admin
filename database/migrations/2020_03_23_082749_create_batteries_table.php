@@ -33,6 +33,8 @@ class CreateBatteriesTable extends Migration
             $table->string('pcs_pallet')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('battery_categories');
         });
     }
 
