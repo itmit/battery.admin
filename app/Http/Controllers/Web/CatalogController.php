@@ -116,5 +116,18 @@ class CatalogController extends Controller
         
         // $url = storage_path() . '/app/catalog_upload/' . $file;
         $spreadsheet = $reader->load($file);
+
+        $cells = $spreadsheet->getActiveSheet()->getCellCollection();
+
+        for ($row = 10; $row <= 57; $row++){
+            for ($col = 'B'; $col <= 'Q'; $col++) {
+                if($cells->get($col.$row) == null) $position[$col] = null;
+                else $position[$col] = $cells->get($col.$row)->getValue();
+            }
+            $result[$row] = $position;
+            $position = [];
+        }
+
+        return $result;
     }
 }

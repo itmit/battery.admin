@@ -17,7 +17,7 @@ class CreateBatteriesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('category_id')->unsigned();
             $table->integer('tab_id');
-            $table->integer('neutral_id');
+            $table->integer('neutral_id')->nullable();
             $table->string('din_marking')->nullable();
             $table->string('old_jis_marking')->nullable();
             $table->string('new_jis_marking')->nullable();
