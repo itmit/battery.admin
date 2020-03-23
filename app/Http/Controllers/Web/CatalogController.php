@@ -82,4 +82,21 @@ class CatalogController extends Controller
     {
         //
     }
+
+    public function uploadCatalog(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'file' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('home')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $file = $request->file('file');
+        dd($file);
+    }
 }
