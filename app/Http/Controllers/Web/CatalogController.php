@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\MyReadFilter;
 
@@ -111,7 +111,7 @@ class CatalogController extends Controller
         }
 
         $file = $request->file('file');
-        $reader = new Xlsx();
+        $reader = new Xls();
         $reader->setReadDataOnly(true);
         
         // $url = storage_path() . '/app/catalog_upload/' . $file;
