@@ -21,7 +21,7 @@
 
                         <div class="row form-group{{ $errors->has('file') ? ' has-error' : '' }}">
 
-                            <label for="file" class="col-md-4 form-control-file">.xls-папка для импорта</label>
+                            <label for="file" class="col-md-4 form-control-file">.xls для импорта</label>
                 
                             <div class="col-md-6">
                                 <input type="file" name="file" id="file" accept=".xls">
