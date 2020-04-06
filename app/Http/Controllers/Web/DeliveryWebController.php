@@ -93,7 +93,7 @@ class DeliveryWebController extends Controller
         {
             // $path = base_path();
             // $path .= 'public_html/';
-            $url = storage_path() . '/app/public/csv_upload/' . Storage::url($file);
+            $url = storage_path() . '/app/public/csv_upload/' . $file;
 
             $handle = fopen($url, "r");
             $header = true;
