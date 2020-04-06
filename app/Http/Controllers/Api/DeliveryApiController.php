@@ -101,5 +101,21 @@ class DeliveryApiController extends ApiBaseController
 
         return $this->sendResponse($data, 'List of deliveries');
     }
+
+    public function getBatteryByCode(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => 'required|exists:delivery_details,SERIAL',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors(), "Validation error", 400);
+        }
+        $battery = DeliveryDetails::join('deliveries', 'delivery_details.delivery_id', '=', 'deliveries.id')
+        ->where('delivery_details.SERIAL', $request->code)
+        ->first()
+        ->toArray();
+        return $this->sendResponse($battery, 'Battery');
+    }
     
 }

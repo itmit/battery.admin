@@ -36,10 +36,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Route::post('checkDeliveryAndShipment/getBatteriesFromDelivery', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromDelivery');
     // Route::post('checkDeliveryAndShipment/getBatteriesFromShipment', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromShipment');
 
-    Route::post('delivery/getBatteryByCode', 'Api\DeliveryApiController@getBatteryByCode');
+    
 });
 
-Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
+Route::post('delivery/getBatteryByCode', 'Api\DeliveryApiController@getBatteryByCode');
 
 Route::fallback(function () {
     $code = 404;
