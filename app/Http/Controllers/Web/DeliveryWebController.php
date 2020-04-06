@@ -153,8 +153,6 @@ class DeliveryWebController extends Controller
                 }
             }
         }
-        // return $categories;
-        return true;
     }
 
 }
