@@ -40,7 +40,6 @@ class DeliveryWebController extends Controller
     {
         foreach($files as $file)
         {
-        
             $path = base_path();
             $path .= '/public_html/';
             $url = $path . Storage::url($file);
@@ -103,7 +102,7 @@ class DeliveryWebController extends Controller
                 $handle = fopen($url, "r");
                 $header = true;
 
-                $delivery_number = stristr(substr(strrchr($file, "/"), 1), ".", true);
+                $delivery_number = $fileType->getFilename();
 
                 $delivery = Delivery::create([
                     'delivery_number' => $delivery_number,
