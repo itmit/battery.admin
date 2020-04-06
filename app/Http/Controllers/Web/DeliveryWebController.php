@@ -92,7 +92,7 @@ class DeliveryWebController extends Controller
         foreach($files as $file)
         {
             $path = base_path();
-            $path .= '/public_html/storage/csv_upload/';
+            $path .= '/public_html/';
             $url = $path . Storage::url($file);
 
             $handle = fopen($url, "r");
