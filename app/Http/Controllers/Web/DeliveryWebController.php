@@ -102,7 +102,7 @@ class DeliveryWebController extends Controller
                 $handle = fopen($url, "r");
                 $header = true;
 
-                $delivery_number = $fileType->getFilename();
+                $delivery_number = $fileType->getBasename('.csv');
 
                 $delivery = Delivery::create([
                     'delivery_number' => $delivery_number,
