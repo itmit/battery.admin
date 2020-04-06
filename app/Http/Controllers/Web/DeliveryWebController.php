@@ -91,9 +91,9 @@ class DeliveryWebController extends Controller
         $files = scandir(storage_path() . '/app/public/csv_upload');
         foreach($files as $file)
         {
-            $path = base_path();
-            $path .= '/public_html/';
-            $url = $path . Storage::url($file);
+            // $path = base_path();
+            // $path .= 'public_html/';
+            $url = storage_path() . '/app/public/csv_upload/' . Storage::url($file);
 
             $handle = fopen($url, "r");
             $header = true;
