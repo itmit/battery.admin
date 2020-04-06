@@ -33,6 +33,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::post('/uploadcatalog', 'Web\CatalogController@uploadCatalog')->name('uploadCatalog');
 
+    Route::get('checkDeliveries', 'Web\DeliveryWebController@checkDeliveries');
+
 });
 
 Route::get('checkFiles', 'Web\DeliveryWebController@checkFilesInUploadedFolder')->name('checkFilesInUploadedFolder');

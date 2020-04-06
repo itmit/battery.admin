@@ -16,14 +16,8 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
-            $table->integer('delivery_number')->nullable();
-            $table->boolean('type')->default(0);
-            $table->bigInteger('client_id')->unsigned()->nullable();
-            $table->uuid('dealer_uuid')->nullable();
+            $table->integer('delivery_number');
             $table->timestamps();
-
-            // $table->foreign('shipment_id')->references('id')->on('shipments')
-            //     ->onUpdate('cascade');
         });
     }
 

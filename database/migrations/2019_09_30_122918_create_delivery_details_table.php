@@ -16,18 +16,20 @@ class CreateDeliveryDetailsTable extends Migration
         Schema::create('delivery_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('delivery_id')->unsigned();
-            $table->string('serial_number');
-            $table->string('delivery_note')->nullable();
             $table->string('SSCC')->nullable();
-            $table->bigInteger('TAB_ID')->nullable();
-            $table->date('production_date')->nullable();
-            $table->date('delivery_date')->nullable();
-            $table->string('TAB_description')->nullable();
-            $table->string('CustomerOrderNumber')->nullable();
-            $table->string('Customer_Buyer')->nullable();
-            $table->bigInteger('Customer_buyer_ID')->nullable();
-            $table->string('Customer_Receiver')->nullable();
-            $table->bigInteger('Customer_Receiver_ID')->nullable();
+            $table->string('ARTICLE')->nullable();
+            $table->string('SERIAL')->nullable();
+            $table->string('SSCC_QUANTITY')->nullable();
+            $table->string('BATCH')->nullable();
+            $table->string('DESCRIPTION')->nullable();
+            $table->date('PACKING_DATE')->nullable();
+            $table->date('DISPATCH_DATE')->nullable();
+            $table->string('Description_2')->nullable();
+            $table->string('PAYER_CODE')->nullable();
+            $table->string('PAYER_DESCRIPTION')->nullable();
+            $table->string('RECEIVER_CODE')->nullable();
+            $table->string('RECEIVER_DESCRIPTION')->nullable();
+            $table->string('NETO_WEIGHT')->nullable();
             $table->timestamps();
 
             $table->foreign('delivery_id')->references('id')->on('deliveries')

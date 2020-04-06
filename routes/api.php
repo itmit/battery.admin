@@ -29,12 +29,14 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
 
-    Route::get('checkDeliveryAndShipment/listOfDeliveries', 'Api\CheckDeliveryAndShipmentController@getDeliveries');
-    Route::get('checkDeliveryAndShipment/listOfShipments', 'Api\CheckDeliveryAndShipmentController@getShipments');
-    Route::get('checkDeliveryAndShipment/listOfDeliveriesAndShipments', 'Api\CheckDeliveryAndShipmentController@getDeliveriesAndShipments');
+    // Route::get('checkDeliveryAndShipment/listOfDeliveries', 'Api\CheckDeliveryAndShipmentController@getDeliveries');
+    // Route::get('checkDeliveryAndShipment/listOfShipments', 'Api\CheckDeliveryAndShipmentController@getShipments');
+    // Route::get('checkDeliveryAndShipment/listOfDeliveriesAndShipments', 'Api\CheckDeliveryAndShipmentController@getDeliveriesAndShipments');
 
-    Route::post('checkDeliveryAndShipment/getBatteriesFromDelivery', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromDelivery');
-    Route::post('checkDeliveryAndShipment/getBatteriesFromShipment', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromShipment');
+    // Route::post('checkDeliveryAndShipment/getBatteriesFromDelivery', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromDelivery');
+    // Route::post('checkDeliveryAndShipment/getBatteriesFromShipment', 'Api\CheckDeliveryAndShipmentController@getBatteriesFromShipment');
+
+    Route::post('delivery/getBatteryByCode', 'Api\DeliveryApiController@getBatteryByCode');
 });
 
 Route::post('delivery/checkBattery', 'Api\DeliveryApiController@checkBattery');
