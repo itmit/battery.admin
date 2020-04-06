@@ -100,8 +100,7 @@ class DeliveryWebController extends Controller
                 // $url = storage_path() . '/app/public/csv_upload/' . $file;
 
                 $url = storage_path() . '/app/public/csv_upload/' . $file;
-                return $url;
-                // $handle = fopen($url, "r");
+                $handle = fopen($url, "r");
                 $header = true;
 
                 $delivery_number = stristr(substr(strrchr($file, "/"), 1), ".", true);
