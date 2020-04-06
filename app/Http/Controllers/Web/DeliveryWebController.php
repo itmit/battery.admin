@@ -91,6 +91,7 @@ class DeliveryWebController extends Controller
         $files = scandir(storage_path() . '/app/public/csv_upload');
         foreach($files as $file)
         {
+            $fileType = new SplFileInfo($file);
             if($fileType->getExtension() == "csv")
             {
                 // $path = base_path();
