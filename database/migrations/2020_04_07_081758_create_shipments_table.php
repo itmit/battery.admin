@@ -15,8 +15,8 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('from')->unsigned();
-            $table->bigInteger('whom')->unsigned();
+            $table->integer('from')->unsigned();
+            $table->integer('whom')->unsigned();
             $table->timestamps();
 
             $table->foreign('from')->references('id')->on('clients');
