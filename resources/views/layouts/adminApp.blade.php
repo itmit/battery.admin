@@ -81,6 +81,7 @@
                     <li class="list-group-item"><a href="{{ route('auth.seller') }}">Продавцы</a></li>
                     <li class="list-group-item"><a href="{{ route('auth.stockman') }}">Кладовщики</a></li>
                     <li class="list-group-item"><a href="{{ route('auth.news.index') }}">Новости</a></li>
+                    <li class="list-group-item"><a href="{{ route('auth.delivery.index') }}">Отгрузки</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 tabs-content">

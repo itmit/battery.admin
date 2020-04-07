@@ -15,7 +15,11 @@ class CreateShipmentDetailsTable extends Migration
     {
         Schema::create('shipment_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('shipment')->unsigned();
+            $table->string('serial');
             $table->timestamps();
+
+            $table->foreign('shipment')->references('id')->on('shipments');
         });
     }
 
