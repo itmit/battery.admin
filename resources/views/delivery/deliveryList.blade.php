@@ -7,20 +7,17 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Логин</th>
-                    <th>Роль</th>
+                    <th>#</th>
                     <th>Дата создания</th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- @foreach($clients as $client)
+                @foreach($deliveries as $delivery)
                     <tr>
-                        <td><input type="checkbox" data-client-id="{{ $client->id }}" name="destoy-client-{{ $client->id }}" class="js-destroy"/></td>
-                        <td><a href="client/{{ $client->id }}"> {{ $client->login }} </a></td>
-                        <td>{{ $client->role }}</td>
-                        <td>{{ $client->created_at->timezone('Europe/Moscow') }}</td>
+                        <td>{{ $delivery->delivery_number }}</td>
+                        <td>{{ $delivery->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
-                @endforeach -->
+                @endforeach
                 </tbody>
             </table>
         </div>
