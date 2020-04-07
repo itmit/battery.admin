@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Stock;
-use App\Models\StockArchive;
+use App\Models\Delivery;
+use App\Models\DeliveryDetails;
 use SplFileInfo;
 
 class checkDeliveries extends Command
