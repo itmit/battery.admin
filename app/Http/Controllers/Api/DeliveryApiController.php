@@ -112,6 +112,7 @@ class DeliveryApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 400);
         }
         $battery = DeliveryDetails::join('deliveries', 'delivery_details.delivery_id', '=', 'deliveries.id')
+        ->join('batteries', 'delivery_details.ARTICLE', '=', 'batteries.tab_id')
         ->where('delivery_details.SERIAL', $request->code)
         ->first()
         ->toArray();

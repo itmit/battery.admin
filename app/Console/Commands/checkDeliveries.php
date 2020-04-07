@@ -39,25 +39,68 @@ class checkDeliveries extends Command
      */
     public function handle()
     {
-        // $yesterday = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")-1, date("Y")));
-        // $stocks = Stock::where('expires_at', '<=', $yesterday)->get();
-        // foreach($stocks as $stock)
-        // {
-        //     StockArchive::create([
-        //         'uuid' => Str::uuid(),
-        //         'client_id' => $stock->client_id,
-        //         'service_id' => $stock->service_id,
-        //         'country' => $stock->country,
-        //         'city' => $stock->city,
-        //         'name' => $stock->name,
-        //         'description' => $stock->description,
-        //         'photo' => $stock->photo,
-        //         'expires_at' => $stock->expires_at,
-        //         'sub_only' => $stock->sub_only,
-        //         'created' => $stock->created_at
-        //     ]);
-        //     $stock->delete();
-        // }
-        // return $this->sendResponse([], 'Stocks has been archived');
+        $files = scandir(storage_path() . '/app/public/csv_upload');
+        foreach($files as $file)
+        {
+            $fileType = new SplFileInfo($file);
+            if($fileType->getExtension() == "csv")
+            {
+                // $path = base_path();
+                // $path .= 'public_html/';
+                // $url = storage_path() . '/app/public/csv_upload/' . $file;
+
+                $url = storage_path() . '/app/public/csv_upload/' . $file;
+                $handle = fopen($url, "r");
+                $header = true;
+
+                $delivery_number = $fileType->getBasename('.csv');
+
+                $delivery = Delivery::create([
+                    'delivery_number' => $delivery_number,
+                    'uuid' => (string) Str::uuid(),
+                ]);
+
+                while ($csvLine = fgetcsv($handle, 1000, ";")) {
+
+                    if ($header) {
+                        $header = false;
+                    } else {
+                        DeliveryDetails::create([
+                            'delivery_id' => $delivery->id,
+                            'SSCC' => $csvLine[0],
+                            'ARTICLE' => $csvLine[1],
+                            'SERIAL' => $csvLine[2],
+                            'SSCC_QUANTITY' => $csvLine[3],
+                            'BATCH' => $csvLine[4],
+                            'DESCRIPTION' => $csvLine[5],
+                            'PACKING_DATE' => $csvLine[6],
+                            'DISPATCH_DATE' => $csvLine[7],
+                            'Description_2' => $csvLine[8],
+                            'PAYER_CODE' => $csvLine[9],
+                            'PAYER_DESCRIPTION' => $csvLine[10],
+                            'RECEIVER_CODE' => $csvLine[11],
+                            'RECEIVER_DESCRIPTION' => $csvLine[12],
+                            'NETO_WEIGHT' => $csvLine[13],
+                        ]);
+                    }
+                }  
+            }   
+        }
+
+        $path = storage_path() . '/app/public/csv_upload';
+        if (file_exists($path)) {
+            foreach (glob($path.'/*') as $file) {
+                if(is_dir($file))
+                {
+                    foreach(scandir($file) as $p) if (($p!='.') && ($p!='..'))
+                    unlink($file.DIRECTORY_SEPARATOR.$p);
+                    // return rmdir($file);
+                }
+                else
+                {
+                    unlink($file);
+                }
+            }
+        }
     }
 }
