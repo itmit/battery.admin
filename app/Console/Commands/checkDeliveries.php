@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Stock;
 use App\Models\StockArchive;
+use SplFileInfo;
 
 class checkDeliveries extends Command
 {
