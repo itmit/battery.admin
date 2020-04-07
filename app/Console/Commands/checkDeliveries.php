@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Models\Delivery;
 use App\Models\DeliveryDetails;
 use SplFileInfo;
+use Illuminate\Support\Str;
 
 class checkDeliveries extends Command
 {
