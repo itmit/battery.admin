@@ -41,7 +41,7 @@ class ShipmentApiController extends ApiBaseController
         ]);
 
         foreach ($request->serials as $serial) {
-            ShipmentDetails::create([
+            ShipmentDetail::create([
                 'shipment' => $shipment->id,
                 'serial' => $serial
             ]);
