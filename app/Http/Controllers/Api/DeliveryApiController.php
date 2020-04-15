@@ -114,7 +114,9 @@ class DeliveryApiController extends ApiBaseController
         
         $battery = DeliveryDetails::join('deliveries', 'delivery_details.delivery_id', '=', 'deliveries.id')
         ->join('batteries', 'delivery_details.ARTICLE', '=', 'batteries.tab_id')
+        ->join('battery_categories', 'batteries.category_id', '=', 'battery_categories.id')
         ->where('delivery_details.SERIAL', $request->code)
+        // ->select('')
         ->first()
         ->toArray();
         return $this->sendResponse($battery, 'Battery');
