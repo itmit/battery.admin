@@ -25,7 +25,7 @@ class ShipmentApiController extends ApiBaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'whom' => 'required|uuid|exists:clients,uuid',
+            'whom' => 'required|uid|exists:clients,uid',
             'serials' => 'required|array'
         ]);
 
