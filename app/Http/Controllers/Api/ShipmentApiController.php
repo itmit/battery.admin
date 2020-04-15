@@ -33,7 +33,7 @@ class ShipmentApiController extends ApiBaseController
             return $this->sendError($validator->errors(), "Validation error", 400);
         }
 
-        $whom = Client::where('uuid', $request->whom)->first()->id;
+        $whom = Client::where('uid', $request->whom)->first()->id;
 
         $shipment = Shipment::create([
             'from' => auth('api')->user()->id,
