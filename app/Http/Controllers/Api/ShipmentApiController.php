@@ -6,7 +6,7 @@ use App\Models\Client;
 use App\Models\Delivery;
 use App\Models\DeliveryDetails;
 use App\Models\Shipment;
-use App\Models\ShipmentDetails;
+use App\Models\ShipmentDetail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
