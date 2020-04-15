@@ -22,7 +22,7 @@ class ShipmentApiController extends ApiBaseController
 {
     public $successStatus = 200;
 
-    public function store(Request $requset)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'whom' => 'required|uuid|exists:clients,uuid',
