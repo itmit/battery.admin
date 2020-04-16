@@ -49,5 +49,13 @@ class ShipmentApiController extends ApiBaseController
 
         return $this->sendResponse([], 'Stored');
     }
+
+    public function index()
+    {
+        return $this->sendResponse(Shipment::where('from', auth('api')->user()->id)
+        ->join('shipment_details', 'shipments.id', '=', 'shipment_details.shipment')
+        ->get()
+        ->toArray(), 'List of users shipments');
+    }
     
 }
