@@ -50,14 +50,37 @@ class ShipmentApiController extends ApiBaseController
         return $this->sendResponse([], 'Stored');
     }
 
-    public function index()
+    public function show($id)
     {
-        return $this->sendResponse(Shipment::where('from', auth('api')->user()->id)
+        return $this->sendResponse(Shipment::where('shipments.id', $id)
         ->join('shipment_details', 'shipments.id', '=', 'shipment_details.shipment')
         ->join('delivery_details', 'shipment_details.serial', '=', 'delivery_details.SERIAL')
         ->join('batteries', 'delivery_details.ARTICLE', '=', 'batteries.tab_id')
+        ->join('battery_categories', 'batteries.category_id', '=', 'battery_categories.id')
         ->get()
-        ->toArray(), 'List of users shipments');
+        ->toArray(), 'shipment');
+    }
+
+    public function index()
+    {
+        $user = auth('api')->user();
+        if ($user->role == "stockman")
+        {
+            return $this->sendResponse(Shipment::where('from', $user->id)
+            ->join('clients as from_client', 'shipments.from', '=', 'from_client.id')
+            ->join('clients as whom_client', 'shipments.whom', '=', 'whom_client.id')
+            ->select('shipments.id as shipment_id', 'shipments.created_at as created_at', 'shipments.updated_at as updated_at', 'from_client.uid as from', 'whom_client.uid as whom', 'from_client.login as from_client_name', 'whom_client.login as whom_client_name')
+            ->get()
+            ->toArray(), 'List of users shipments');
+        }
+        else {
+            return $this->sendResponse(Shipment::where('whom', $user->id)
+            ->join('clients as from_client', 'shipments.from', '=', 'from_client.id')
+            ->join('clients as whom_client', 'shipments.whom', '=', 'whom_client.id')
+            ->select('shipments.id as shipment_id', 'shipments.created_at as created_at', 'shipments.updated_at as updated_at', 'from_client.uid as from', 'whom_client.uid as whom', 'from_client.login as from_client_name', 'whom_client.login as whom_client_name')
+            ->get()
+            ->toArray(), 'List of users shipments');
+        }
     }
     
 }
